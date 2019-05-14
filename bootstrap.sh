@@ -42,4 +42,17 @@ export PATH="$PATH:/opt/mssql-tools/bin"
 sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT @@version;"
 echo "SQLServer: Guest IP address:"
 ip addr show|grep -w inet
+# install dotnet sdk
+wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get install apt-transport-https
+sudo apt-get install dotnet-sdk-2.2
+
+# install dotnet runtime
+wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install aspnetcore-runtime-2.2
+
 echo "Bootstrap: DONE"
